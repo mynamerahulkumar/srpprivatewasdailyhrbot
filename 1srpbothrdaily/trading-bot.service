@@ -1,0 +1,35 @@
+[Unit]
+Description=4H Trading Bot (AWS EC2 Optimized)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/srpprivatetradedailybot
+
+# Use optimized config for EC2
+Environment="CONFIG_FILE=config.ec2.yaml"
+
+# Run with UV (efficient)
+ExecStart=/home/ubuntu/.cargo/bin/uv run python run_bot.py
+
+# Auto-restart on crash (with delay to prevent rapid restarts)
+Restart=always
+RestartSec=30
+
+# Resource limits (prevent runaway)
+MemoryMax=300M
+CPUQuota=20%
+
+# Logging
+StandardOutput=append:/home/ubuntu/srpprivatetradedailybot/systemd.log
+StandardError=append:/home/ubuntu/srpprivatetradedailybot/systemd-error.log
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+

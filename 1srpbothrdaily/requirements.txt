@@ -1,0 +1,14 @@
+pandas
+numpy
+python-dotenv
+delta_rest_client
+requests
+PyYAML
+pytz
+pytest
+pytest-cov
+fastapi
+uvicorn[standard]
+pydantic
+pytest
+httpx

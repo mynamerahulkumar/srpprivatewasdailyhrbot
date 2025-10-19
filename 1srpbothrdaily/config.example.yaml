@@ -1,0 +1,84 @@
+# Breakout Trading Bot Configuration Examples
+# =============================================
+# Copy this file to config.yaml and customize your settings
+
+# Example 1: 1-HOUR Breakout Strategy
+# ------------------------------------
+# trading:
+#   symbol: "BTCUSD"
+#   product_id: 27
+#   order_size: 1
+# 
+# schedule:
+#   timeframe: "1h"
+#   reset_interval_minutes: 60
+#   timezone: "Asia/Kolkata"
+
+# Example 2: 2-HOUR Breakout Strategy
+# ------------------------------------
+# trading:
+#   symbol: "BTCUSD"
+#   product_id: 27
+#   order_size: 1
+# 
+# schedule:
+#   timeframe: "2h"
+#   reset_interval_minutes: 120
+#   timezone: "Asia/Kolkata"
+
+# Example 3: 4-HOUR Breakout Strategy
+# ------------------------------------
+# trading:
+#   symbol: "BTCUSD"
+#   product_id: 27
+#   order_size: 1
+# 
+# schedule:
+#   timeframe: "4h"
+#   reset_interval_minutes: 240
+#   timezone: "Asia/Kolkata"
+
+# Example 4: DAILY Breakout Strategy
+# -----------------------------------
+# trading:
+#   symbol: "BTCUSD"
+#   product_id: 27
+#   order_size: 1
+# 
+# schedule:
+#   timeframe: "1d"
+#   reset_interval_minutes: 1440
+#   timezone: "Asia/Kolkata"
+
+# ===========================================
+# ACTIVE CONFIGURATION (Uncomment to use)
+# ===========================================
+
+trading:
+  symbol: "BTCUSD"              # Trading pair
+  product_id: 27                # Delta Exchange product ID
+  order_size: 1                 # Contract size per trade
+  max_position_size: 3          # Maximum total position size (prevents over-trading)
+  check_existing_orders: true   # Check for existing orders before placing new ones
+
+schedule:
+  timeframe: "1h"               # Options: 1h, 2h, 4h, 6h, 1d
+  reset_interval_minutes: 60    # 60=1h, 120=2h, 240=4h, 360=6h, 1440=1d
+  timezone: "Asia/Kolkata"      # Indian Standard Time (IST)
+
+risk_management:
+  stop_loss_points: 10000       # SL distance from entry (customizable)
+  take_profit_points: 40000     # TP distance from entry (customizable)
+  breakeven_trigger_points: 10000  # Profit threshold to move SL to entry
+
+monitoring:
+  order_check_interval: 10      # Check orders every N seconds
+  position_check_interval: 5    # Check positions every N seconds
+
+api:
+  base_url: "https://api.india.delta.exchange"
+
+logging:
+  level: "INFO"                 # DEBUG, INFO, WARNING, ERROR
+  file: "breakout_bot.log"
+

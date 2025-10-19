@@ -1,0 +1,165 @@
+{
+  "info": {
+    "name": "Breakout Trading Bot API",
+    "description": "Complete API collection for controlling and testing the breakout trading bot",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": [""]
+        },
+        "description": "Check if API server is running"
+      }
+    },
+    {
+      "name": "Start Bot - 4H Conservative",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"bot_id\": \"bot_4h_btc_conservative\",\n  \"api_key\": \"YOUR_API_KEY\",\n  \"api_secret\": \"YOUR_API_SECRET\",\n  \"trading\": {\n    \"symbol\": \"BTCUSD\",\n    \"product_id\": 27,\n    \"order_size\": 1\n  },\n  \"schedule\": {\n    \"timeframe\": \"4h\",\n    \"timezone\": \"Asia/Kolkata\",\n    \"wait_for_next_candle\": true,\n    \"startup_delay_minutes\": 10\n  },\n  \"risk_management\": {\n    \"stop_loss_points\": 10000,\n    \"take_profit_points\": 40000,\n    \"breakeven_trigger_points\": 10000\n  },\n  \"monitoring\": {\n    \"order_check_interval\": 10,\n    \"position_check_interval\": 5\n  }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/bot/start",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "bot", "start"]
+        },
+        "description": "Start a 4H bot with conservative settings (wait for next candle + 10 min delay)"
+      }
+    },
+    {
+      "name": "Start Bot - 1H Aggressive",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"bot_id\": \"bot_1h_btc_aggressive\",\n  \"api_key\": \"YOUR_API_KEY\",\n  \"api_secret\": \"YOUR_API_SECRET\",\n  \"trading\": {\n    \"symbol\": \"BTCUSD\",\n    \"product_id\": 27,\n    \"order_size\": 1\n  },\n  \"schedule\": {\n    \"timeframe\": \"1h\",\n    \"timezone\": \"Asia/Kolkata\",\n    \"wait_for_next_candle\": false,\n    \"startup_delay_minutes\": 0\n  },\n  \"risk_management\": {\n    \"stop_loss_points\": 5000,\n    \"take_profit_points\": 20000,\n    \"breakeven_trigger_points\": 5000\n  },\n  \"monitoring\": {\n    \"order_check_interval\": 5,\n    \"position_check_interval\": 3\n  }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/bot/start",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "bot", "start"]
+        },
+        "description": "Start a 1H bot with aggressive settings (immediate trading)"
+      }
+    },
+    {
+      "name": "Get Bot Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/bot/status/bot_4h_btc_conservative",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "bot", "status", "bot_4h_btc_conservative"]
+        },
+        "description": "Get detailed status of a specific bot"
+      }
+    },
+    {
+      "name": "List All Bots",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/bots",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "bots"]
+        },
+        "description": "List all bots (running and stopped)"
+      }
+    },
+    {
+      "name": "Get Bot Orders",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/bot/orders/bot_4h_btc_conservative",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "bot", "orders", "bot_4h_btc_conservative"]
+        },
+        "description": "Get active orders for a specific bot"
+      }
+    },
+    {
+      "name": "Get Bot Position",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/bot/position/bot_4h_btc_conservative",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "bot", "position", "bot_4h_btc_conservative"]
+        },
+        "description": "Get current position for a specific bot"
+      }
+    },
+    {
+      "name": "Stop Bot",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/bot/stop/bot_4h_btc_conservative",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "bot", "stop", "bot_4h_btc_conservative"]
+        },
+        "description": "Stop a running bot"
+      }
+    },
+    {
+      "name": "Delete Bot",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/bot/bot_4h_btc_conservative",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "bot", "bot_4h_btc_conservative"]
+        },
+        "description": "Delete a stopped bot"
+      }
+    }
+  ]
+}
+
+
+
