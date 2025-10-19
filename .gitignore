@@ -1,0 +1,300 @@
+# ============================================================
+# Python Trading Bot - .gitignore
+# Optimized for AWS EC2 Deployment
+# ============================================================
+
+# ==================== SENSITIVE FILES ====================
+# NEVER COMMIT THESE - Contains API credentials and secrets
+.env
+.env.*
+.env.local
+.env.production
+.env.staging
+.env.backup
+*.env
+
+# API Keys and Secrets
+*secret*
+*credentials*
+api_keys.txt
+keys/
+
+# ==================== PYTHON ====================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+*.venv/
+*.env/
+
+# UV package manager
+.venv/
+uv.lock
+.python-version
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# ==================== LOGS ====================
+# Trading bot logs (contains sensitive trading data)
+*.log
+logs/
+*.log.*
+log/
+breakout_bot.log
+trading_*.log
+api_*.log
+error_*.log
+
+# ==================== AWS / EC2 ====================
+# AWS credentials and config
+.aws/
+*.pem
+*.key
+*.ppk
+*.pub
+id_rsa*
+known_hosts
+
+# EC2 instance files
+.ssh/
+authorized_keys
+
+# Terraform / Infrastructure
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfvars
+
+# ==================== CONFIGURATION ====================
+# Local configuration (don't share)
+config.local.yaml
+config.prod.yaml
+config.*.yaml
+!config.example.yaml
+
+# Keep example configs
+!config.example.yaml
+!env.example
+
+# ==================== DATABASES ====================
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# ==================== IDE / EDITORS ====================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ==================== OS FILES ====================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ==================== JUPYTER NOTEBOOKS ====================
+.ipynb_checkpoints/
+*.ipynb
+
+# ==================== DATA FILES ====================
+# CSV/Excel files (may contain sensitive trading data)
+*.csv
+*.xlsx
+*.xls
+
+# Pickle files (model/data files)
+*.pkl
+*.pickle
+
+# Parquet files
+*.parquet
+
+# ==================== BACKUP FILES ====================
+*.bak
+*.backup
+*.tmp
+*.temp
+*_backup
+*_old
+backup/
+backups/
+
+# ==================== DEPLOYMENT ====================
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Process ID files
+*.pid
+*.pidfile
+
+# SSL certificates (if any)
+*.crt
+*.cer
+*.pem
+*.p12
+*.pfx
+
+# ==================== MONITORING ====================
+# Prometheus/monitoring data
+prometheus_data/
+grafana_data/
+
+# ==================== NODEJS (if using any JS tools) ====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ==================== COMPRESSION ====================
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# ==================== LARGE FILES ====================
+# Prevent committing large files
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.iso
+
+# ==================== CACHE ====================
+*.cache
+.cache/
+cache/
+
+# ==================== PROJECT SPECIFIC ====================
+# Bot state files (if any)
+state/
+bot_state.json
+position_history.json
+
+# Temporary trading data
+temp_data/
+scratch/
+
+# ==================== EXCEPTIONS ====================
+# Files to ALWAYS include (even if matched above)
+!.gitignore
+!requirements.txt
+!pyproject.toml
+!README.md
+!CHANGELOG.md
+!config.example.yaml
+!env.example
+!*.sh
+
+# ==================== END ====================
